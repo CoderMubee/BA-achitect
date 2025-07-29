@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>B.A Architect HOMEPAGE</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Lilita+One&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-gold: rgba(218, 165, 32, 0.7);
+      --color-dark: rgba(0, 0, 0, 0.85);
+      --color-light: rgba(255, 255, 255, 0.6);
+      --color-white: rgba(255, 255, 255, 0.85);
+      --font-main: Helvetica, Arial, sans-serif;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-main);
+      background-image: url(images/image.jpeg);
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    li {
+      list-style-type: none;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    /* HEADER */
+    .header {
+      position: fixed;
+      width: 100%;
+      z-index: 1;
+      background-color: #000;
+    }
+
+    .header__logo {
+      padding: 0 0.5em;
+    }
+
+    /* NAVIGATION */
+    .nav {
+      position: relative;
+    }
+
+    .nav__toggle {
+      position: absolute;
+      top: -1.8em;
+      right: 0.5em;
+      font-size: 2em;
+      border: none;
+      background: none;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .nav-menu {
+      display: none;
+    }
+
+    .nav-menu.nav--open {
+      display: block;
+    }
+
+    .nav-menu__link {
+      display: flex;
+      flex-direction: column;
+      font-weight: bold;
+      border-bottom: 1px solid white;
+      text-align: center;
+      padding: 1em 0;
+    }
+
+    .nav-menu__link-anchor {
+      flex: 1;
+      color: white;
+    }
+
+    .nav-menu__link-anchor:hover {
+      background-color: black;
+    }
+
+    .nav__dropdown {
+      display: none;
+      background-color: white;
+    }
+
+    .nav__dropdown li {
+      text-align: left;
+    }
+
+
+
+    .nav__dropdown li {
+      display: flex;
+      background-color: white;
+    }
+
+    .nav__dropdown li a {
+      flex: 1;
+      color: black;
+      padding: 1em 1em;
+    }
+
+    .nav__dropdown li:hover a {
+      background-color: rgba(0, 0, 0, .5);
+    }
+
+    @media (min-width: 768px) {
+      .nav__toggle {
+        display: none;
+      }
+
+      .nav-menu {
+        display: flex;
+      }
+
+      .nav-menu__link {
+        display: flex;
+        border: none;
+        flex: 1;
+        padding: 0;
+      }
+
+      .nav-menu__link-anchor {
+        flex: 1;
+        color: white;
+        background-color: rgba(255, 255, 255, .5);
+        padding: .5em 0;
+      }
+
+      .nav__dropdown {
+        position: absolute;
+        top: 2em;
+        width: 100%;
+        z-index: 1;
+      }
+
+      .nav__item--dropdown:hover .nav__dropdown {
+        display: block;
+        width: 25%;
+      }
+    }
+
+    /* HERO */
+    .main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 8.5em;
+      min-height: 100vh;
+      text-align: center;
+    }
+
+    .main__container {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 2em;
+      max-width: 28em;
+      box-shadow: 6px 2px rgba(0, 0, 0, 0.7);
+    }
+
+    .main__title {
+      color: white;
+      font-size: 1.5em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .main__title-name {
+      font-size: 2.5em;
+      font-family: cursive;
+    }
+
+    .main__subtitle {
+      color: rgba(255, 255, 255, 0.6);
+      margin-top: 0.5em;
+      padding-left: 2em;
+    }
+
+    .main__button {
+      margin-top: 1em;
+      padding: 0.3em 1em;
+      background-color: rgba(218, 165, 32, 0.7);
+      border: none;
+      cursor: pointer;
+    }
+
+    .main__button__anchor {
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.6);
+      color: black;
+    }
+
+    .main__button__anchor:visited {
+      color: grey;
+    }
+
+    .main__button__anchor:active {
+      color: grey;
+    }
+
+    .main__button__anchor:hover {
+      color: black;
+    }
+
+    /* FOOTER */
+    .footer {
+      background-color: rgba(0, 0, 0, 0.85);
+      color: white;
+      padding: .5em 1em;
+    }
+
+    .footer__container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .footer__info {
+      flex: 0 0 50%;
+    }
+
+    .footer__text {
+      margin-bottom: 0.5em;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .footer__social img {
+      width: 25px;
+      margin-right: 0.5em;
+      border-radius: 50%;
+    }
+
+    @media (max-width: 400px) {
+      .footer__container {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    .footer__advert {
+      width: 150px;
+      margin: 0 auto;
+
+    }
+
+    .footer__advert p {
+      display: inline-block;
+      color: grey;
+      font-size: x-small;
+      width: 150px;
+      padding-left: 2.5em;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <div class="header__logo">
+      <img src="images/logo.png" alt="Company Logo">
+    </div>
+    <nav class="nav" id="nav">
+      <button class="nav__toggle" id="toggle-menu">☰</button>
+      <ul class="nav-menu" id="nav-menu">
+          <li class="nav-menu__link"><a class="nav-menu__link-anchor" href="index.html">Home</a></li>
+          <li class="nav-menu__link nav__item--dropdown">
+              <a class="nav-menu__link-anchor" href="#">Categories</a>
+              <ul class="nav__dropdown">
+                  <li><a href="categories.html">Projects Portfolio</a></li>
+                  <li><a href="#">Design Gallery</a></li>
+                  <li><a href="#">Awards and Recognitions</a></li>
+                  <li><a href="#">Our Partners</a></li>
+              </ul>
+          </li>
+          <li class="nav-menu__link nav__item--dropdown">
+              <a class="nav-menu__link-anchor" href="#">About</a>
+              <ul class="nav__dropdown">
+                  <li><a href="#">Us</a></li>
+                  <li><a href="#">Support Services</a></li>
+                  <li><a href="#">Contacts</a></li>
+              </ul>
+          </li>
+          <li class="nav-menu__link nav__item--dropdown">
+              <a class="nav-menu__link-anchor" href="#">Contacts</a>
+              <ul class="nav__dropdown">
+                  <li><a href="#">WhatsApp</a></li>
+                  <li><a href="#">Facebook</a></li>
+                  <li><a href="#">LinkedIn</a></li>
+                  <li><a href="#">X</a></li>
+                  <li><a href="#">Mail us</a></li>
+              </ul>
+          </li>
+      </ul>
+  </nav>
+  </header>
+  <main class="main">
+    <div class="main__container">
+      <h1 class="main__title">
+        <span class="main__title-name">B.A</span> Architect
+      </h1>
+      <p class="main__subtitle">We are the best to go to in delivering service to client satisfaction</p>
+      <button class="main__button"><a href="" class="main__button__anchor">Read More</a></button>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="footer__container">
+      <div class="footer__info">
+        <p class="footer__text"><strong>Head Office:</strong> No. 44, Brown Road, Aguda Surulere, Lagos</p>
+        <p class="footer__text"><strong>Hotline:</strong> 0813-775-6185</p>
+      </div>
+      <div class="footer__social">
+        <a href="#"><img src="icons/whatsapp-50.png" alt="WhatsApp"></a>
+        <a href="#"><img src="icons/facebook-50.png" alt="Facebook"></a>
+        <a href="#"><img src="icons/x-50.png" alt="X"></a>
+        <a href="#"><img src="icons/linkedIn-50.png" alt="LinkedIn"></a>
+      </div>
+    </div>
+    <div class="footer__advert">
+      <p>Designed by: Msquare</p>
+      <p>Msquare28@gmail.com</p>
+    </div>
+  </footer>
+  <script>
+    const nav = document.getElementById('nav-menu');
+        const toggle = document.getElementById('toggle-menu');
+        toggle.addEventListener('click', function (e) {
+            e.stopPropagation();
+            nav.classList.toggle('nav--open');
+        });
+        // Close menu when clicking outside
+        document.addEventListener('click', function (e) {
+            if (!nav.contains(e.target)) {
+                nav.classList.remove('nav--open');
+            }
+        });
+        // Dropdown hover effect for desktop
+        document.querySelectorAll('.nav__item--dropdown').forEach((item) => {
+            item.addEventListener('mouseenter', () => {
+                item.querySelector('.nav__dropdown').style.display = 'block';
+            });
+            item.addEventListener('mouseleave', () => {
+                item.querySelector('.nav__dropdown').style.display = 'none';
+            });
+        });
+  </script>
+</body>
+
+</html>
